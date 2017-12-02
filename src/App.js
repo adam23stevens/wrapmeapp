@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import Layout from './components/Layout/Layout';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome to wrap-me-app</h1>
-        <b>The app that gets shit done for you so you don't have to worry about shit</b>
+        <Layout>
+            <p>test</p>
+        </Layout>
       </div>
     );
   }
