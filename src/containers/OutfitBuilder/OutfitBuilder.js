@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Aux from '../../hoc/Aux';
 import Outfit from '../../components/Outfit/Outfit';
 import BuildControls from '../../components/Outfit/BuildControls/BuildControls';
+import Modal from '../../components/UI/Modal/Modal';
+import OrderSummary from '../../components/Outfit/OrderSummary/OrderSummary';
 
 const OUTFIT_PRICES = {
     salad: 0.4,
@@ -19,7 +21,8 @@ class OutfitBuilder extends Component {
             cheese: 0,
         },
         totalPrice: 4,
-        purchasable: false
+        purchasable: false,
+        purchasing: false
     }
     
     updatePurchasable(outfitParts){        
@@ -62,6 +65,22 @@ class OutfitBuilder extends Component {
         this.addRemoveOutfitPart(type, false);
     }
 
+    updatePurchasing = () => {
+        this.setState({
+            purchasing: true
+        });
+    }
+
+    cancelPurchasing = () => {
+        this.setState({
+            purchasing: false
+        });
+    }
+
+    continuePurchase = () => {
+        alert('You have continued purchase!');
+    }
+
 
     render(){
         const disabledCntrl = {
@@ -73,13 +92,21 @@ class OutfitBuilder extends Component {
 
         return (
             <Aux>
+                <Modal show={this.state.purchasing} modalClose={this.cancelPurchasing}>
+                    <OrderSummary 
+                        orderParts={this.state.outfitParts}
+                        cancelClicked={this.cancelPurchasing}
+                        continueClicked={this.continuePurchase}
+                        totalPrice={this.state.totalPrice}/>
+                </Modal>
                 <Outfit outfitParts = {this.state.outfitParts}/>
                 <BuildControls 
                     addType={this.addOutfitPartHandler}
                     removeType={this.removeOutfitPartHandler}
                     disabled={disabledCntrl}
                     price={this.state.totalPrice}
-                    purchasable={this.state.purchasable}/>                            
+                    purchasable={this.state.purchasable}
+                    purchasing={this.updatePurchasing}/>                            
             </Aux>
         );
     }
