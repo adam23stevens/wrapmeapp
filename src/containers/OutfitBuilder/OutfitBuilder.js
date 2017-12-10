@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import Aux from '../../hoc/Aux/Aux';
 import Outfit from '../../components/Outfit/Outfit';
-import BuildControls from '../../components/Outfit/BuildControls/BuildControls';
+//import BuildControls from '../../components/Outfit/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
-import OrderSummary from '../../components/Outfit/OrderSummary/OrderSummary';
+//import OrderSummary from '../../components/Outfit/OrderSummary/OrderSummary';
 import axios from '../../axios-orders';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
@@ -117,21 +117,23 @@ class OutfitBuilder extends Component {
             outfit = (
                 <Aux>
                     <Outfit outfitParts = {this.state.outfitParts}/>
-                    <BuildControls 
+                    {/* <BuildControls 
                         addType={this.addOutfitPartHandler}
                         removeType={this.removeOutfitPartHandler}
                         disabled={disabledCntrl}
                         price={this.state.totalPrice}
                         purchasable={this.state.purchasable}
-                        purchasing={this.updatePurchasing}/>
+                        purchasing={this.updatePurchasing}/> */}
+                        <h2>Add remove controls here</h2>
                 </Aux>
                 );
             orderSummary = 
-                <OrderSummary 
-                    orderParts={this.state.outfitParts}
-                    cancelClicked={this.cancelPurchasing}
-                    continueClicked={this.continuePurchase}
-                    totalPrice={this.state.totalPrice}/>;                    
+                // <OrderSummary 
+                //     orderParts={this.state.outfitParts}
+                //     cancelClicked={this.cancelPurchasing}
+                //     continueClicked={this.continuePurchase}
+                //     totalPrice={this.state.totalPrice}/>;                    
+                <h2>Summary / recording component here</h2>
         }
             
         if (this.state.loading) {

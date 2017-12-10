@@ -20,6 +20,7 @@ class OutfitPart extends Component {
             case ('Jeans') :
                 outfitPart = (
                     <div className={[classes.Jeans, classes.Blue].join(' ')}>
+                        <div className={classes.JeansZip}/>
                         <div className={classes.JeansLegLeft}/>
                         <div className={classes.JeansLegRight}>
                             <div className={classes.JeansStitch}/>
