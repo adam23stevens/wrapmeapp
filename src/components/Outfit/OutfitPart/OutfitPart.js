@@ -8,19 +8,22 @@ class OutfitPart extends Component {
         let outfitPart = null;
 
         switch(this.props.type) {
-            case ('Shirt') :
+            case ('Tee') :
                 outfitPart = (                    
-                     <div className={[classes.Shirt, classes.Red].join(' ')}>                                                            
-                        <div className={[classes.ShirtSleeve, classes.ShirtSleeveLeft, classes.Green].join(' ')}/>                     
-                        <div className={[classes.ShirtSleeve, classes.ShirtSleeveRight, classes.Green].join(' ')}/>                     
+                     <div className={[classes.Tee, classes.Red].join(' ')}>                                    
+                        <div className={classes.TeeNeck}/>                        
+                        <div className={[classes.TeeSleeve, classes.TeeSleeveLeft, classes.Green].join(' ')}/>                     
+                        <div className={[classes.TeeSleeve, classes.TeeSleeveRight, classes.Green].join(' ')}/>                     
                      </div>
                 );
                 break;            
-            case ('Trousers') : 
+            case ('Jeans') :
                 outfitPart = (
-                    <div className={[classes.Trousers, classes.Blue].join(' ')}>
-                        <div className={classes.TrouserLegLeft}></div>
-                        <div className={classes.TrouserLegRight}></div>
+                    <div className={[classes.Jeans, classes.Blue].join(' ')}>
+                        <div className={classes.JeansLegLeft}/>
+                        <div className={classes.JeansLegRight}>
+                            <div className={classes.JeansStitch}/>
+                        </div>
                     </div>
                 )                
                 break;

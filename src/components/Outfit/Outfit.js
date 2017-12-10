@@ -13,8 +13,8 @@ const outfit = (props) => {
 
     return (
         <div className={classes.Outfit}>
-            <OutfitPart type='Shirt' colour='Red'/>     
-            <OutfitPart type='Trousers' colour='Blue'/>                       
+            <OutfitPart type='Tee' colour='Red'/>     
+            <OutfitPart type='Jeans' colour='Blue'/>                       
         </div>
     )
 }
