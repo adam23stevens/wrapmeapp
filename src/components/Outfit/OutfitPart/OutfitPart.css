@@ -1,12 +1,86 @@
-.BreadBottom {
-    height: 13%;
-    width: 80%;
-    background: linear-gradient(#F08E4A, #e27b36);
-    border-radius: 0 0 30px 30px;
-    box-shadow: inset -15px 0 #c15711;
+.Tee {
+    height: 16%;
+    width: 10%;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 1px 0 black;
     margin: 2% auto;
+    position:relative;
 }
 
+.TeeNeck{
+    position: absolute;
+    width: 40%;
+    height: 13%;
+    border-radius: 0 0 15px 15px;
+    background-color: white;
+    align-items: center;
+    left: 30%;
+}
+
+.TeeSleeve{
+    height: 40%;
+    width: 35%;
+    position: absolute;        
+    background: inherit;    
+}
+
+.TeeSleeveLeft{
+    border-radius: 20px 0 0 5px;
+    left: -24px;
+}
+
+.TeeSleeveRight {
+    border-radius: 0 20px 5px 0;
+    left: 70px;
+}
+
+.Jeans{
+    height: 5.5%;
+    width: 10%;
+    margin: 2% auto;
+    position: relative;
+    border-radius: 5px 5px 0 0;    
+}
+
+.JeansLegLeft{
+    position: absolute;
+    margin-right: 12px;
+    background: inherit;
+    height: 8rem;
+    width: 2rem;
+    border-radius: 5px 0 5px 5px;    
+}
+
+.JeansLegRight{
+    position: absolute;
+    margin-right: 12px;
+    background: inherit;
+    height: 8rem;
+    width: 2rem;
+    left: 2.5rem;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 1px black;    
+}
+.JeansStitch {
+    border: 1px dashed yellow;
+    position: absolute;    
+    height: 99%;
+    left: 1.5rem;
+}
+
+.Red{
+    background: linear-gradient(rgb(236, 21, 21), #e70707);
+}
+
+.Green{
+    background: linear-gradient(#65e629, #228c1d);
+}
+
+.Blue {
+    background: linear-gradient(#2d67e4, #0d47bb);
+}
+
+/* 
 .BreadTop {
     height: 20%;
     width: 80%;
@@ -110,4 +184,4 @@
     height: 3%;
     background: linear-gradient(#bf3813, #c45e38);
     margin: 2% auto;
-}
+} */

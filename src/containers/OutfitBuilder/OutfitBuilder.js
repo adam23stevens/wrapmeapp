@@ -17,22 +17,11 @@ const OUTFIT_PRICES = {
 
 class OutfitBuilder extends Component {
     state = {
-        outfitParts: null,
-        totalPrice: 4,
-        purchasable: false,
-        purchasing: false,
-        loading: false,
-        error: false
-    }
-
-    componentDidMount(){
-        axios.get('https://burger-builder-b0e1e.firebaseio.com/outfitParts.json')
-            .then(response => {
-                    this.setState({outfitParts: response.data})
-            })
-            .catch(error => 
-                {this.setState({error: true})
-            });
+        outfitParts: {
+            shirt: 'red',
+            trouser: 'navy',
+            shoes: 'black'
+        }
     }
     
     updatePurchasable(outfitParts){        
