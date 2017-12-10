@@ -3,13 +3,19 @@ import OutfitPart from './OutfitPart/OutfitPart';
 import classes from './Outfit.css';
 
 const outfit = (props) => {
-    // const outfitPartsArr = Object.keys(props.outfitParts).map(
-    //     igKey => {
-    //         return [...Array(props.outfitParts[igKey])].map((_, i) =>
-    //             <OutfitPart key={igKey + i} type={igKey}/>
-    //         )
-    //     }
-    // )
+    let outfitPartsArr = Object.keys(props.outfitParts).map(
+        igKey => {
+            return [...Array(props.outfitParts[igKey])].map((_, i) =>
+                <OutfitPart key={igKey + i} type={igKey}/>
+            )
+        }
+    ).reduce((arr, el) => {
+        return arr.concat(el);
+    }, []);
+
+    if (outfitPartsArr.length === 0) {
+        outfitPartsArr = <p>Please start adding ingredients</p>
+    }
 
     return (
         <div className={classes.Outfit}>
