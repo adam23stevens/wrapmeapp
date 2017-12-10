@@ -1,12 +1,66 @@
-.BreadBottom {
-    height: 13%;
-    width: 80%;
-    background: linear-gradient(#F08E4A, #e27b36);
-    border-radius: 0 0 30px 30px;
-    box-shadow: inset -15px 0 #c15711;
+.Shirt {
+    height: 20%;
+    width: 10%;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 1px 0 #000000;
     margin: 2% auto;
+    position:relative;
 }
 
+.ShirtSleeve{
+    height: 35%;
+    width: 35%;
+    position: absolute;        
+    background: inherit;    
+}
+
+.ShirtSleeveLeft{
+    border-radius: 20px 0 0 5px;
+    left: -24px;
+}
+
+.ShirtSleeveRight {
+    border-radius: 0 20px 5px 0;
+    left: 70px;
+}
+
+.Trousers{
+    height: 5.5%;
+    width: 10%;
+    margin: 2% auto;
+    position: relative;
+}
+
+.TrouserLegLeft{
+    position: absolute;
+    margin-right: 12px;
+    background: inherit;
+    height: 8rem;
+    width: 2rem;
+}
+
+.TrouserLegRight{
+    position: absolute;
+    margin-right: 12px;
+    background: inherit;
+    height: 8rem;
+    width: 2rem;
+    left: 3rem;
+}
+
+.Red{
+    background: linear-gradient(rgb(236, 21, 21), #e70707);
+}
+
+.Green{
+    background: linear-gradient(#65e629, #228c1d);
+}
+
+.Blue {
+    background: linear-gradient(#2d67e4, #0d47bb);
+}
+
+/* 
 .BreadTop {
     height: 20%;
     width: 80%;
@@ -110,4 +164,4 @@
     height: 3%;
     background: linear-gradient(#bf3813, #c45e38);
     margin: 2% auto;
-}
+} */

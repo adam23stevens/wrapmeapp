@@ -6,10 +6,9 @@ class OutfitBuilder extends Component {
 
     state = {
         outfitParts: {
-            salad: 1,
-            bacon: 2,
-            meat: 1,
-            cheese: 2,
+            shirt: 'red',
+            trouser: 'navy',
+            shoes: 'black'
         }
     }
     
