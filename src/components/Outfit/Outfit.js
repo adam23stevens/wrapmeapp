@@ -14,7 +14,10 @@ const outfit = (props) => {
     return (
         <div className={classes.Outfit}>
             <OutfitPart type='Tee' colour='Red'/>     
-            <OutfitPart type='Jeans' colour='Blue'/>                       
+            <OutfitPart type='Belt' colour='Black'/>
+            <OutfitPart type='Jeans' colour='Blue'/>   
+            <OutfitPart type='ShoeTop' colour='Navy'/>
+            {/* <OutfitPart type='ShoeTop' colour='Navy'/> */}            
         </div>
     )
 }
