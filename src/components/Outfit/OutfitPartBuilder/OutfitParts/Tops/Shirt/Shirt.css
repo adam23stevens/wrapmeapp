@@ -1,0 +1,65 @@
+.Shirt {
+    height: 16%;
+    width: 10%;
+    border-radius: 0 0 10px 10px;    
+    margin: 2% auto;
+    position:relative;    
+}
+
+.ShirtButtons{
+    position: absolute;
+    height: 80%;
+    border: 0.05rem dashed black;
+    top: 15%;
+    left: 45%;
+}
+
+.ShirtCollar{
+    position: absolute;
+    width: 20%;
+    height: 15%;        
+    left: 55%;
+    top:-5%;
+    background: inherit;
+    border-top-left-radius: 100%;
+    z-index: 300;
+}
+
+.ShirtCollarLeft{
+    position: absolute;
+    width: 20%;
+    height: 15%;        
+    left: 25%;
+    top:-5%;
+    background: inherit;
+    border-top-right-radius: 100%;
+    z-index: 300;
+}
+
+.ShirtNeck{
+    position: absolute;
+    width: 40%;
+    height: 10%;
+    border-radius: 0 0 60px 60px;
+    background-color: white;
+    align-items: center;
+    left: 30%;
+    z-index: 100;
+}
+
+.ShirtSleeve{
+    height: 75%;
+    width: 34%;
+    position: absolute;        
+    background: inherit;      
+}
+
+.ShirtSleeveLeft{
+    border-radius: 17px 0 0 5px;
+    left: -34%;    
+}
+
+.ShirtSleeveRight {
+    border-radius: 0 17px 5px 0;
+    left: 101%;
+}

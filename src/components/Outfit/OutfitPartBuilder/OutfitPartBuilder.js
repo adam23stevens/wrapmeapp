@@ -4,12 +4,16 @@ import Tee from './OutfitParts/Tops/Tee/Tee';
 import Jeans from './OutfitParts/Bottoms/Jeans/Jeans';
 import LeatherBelt from './OutfitParts/Accessories/Belts/LeatherBelt/LeatherBelt';
 import Shoes from './OutfitParts/Shoes/Shoes';
+import Shirt from './OutfitParts/Tops/Shirt/Shirt';
 
 class OutfitPartBuilder extends Component {
     render () {          
         let outfitPart = null;
         
         switch(this.props.type) {
+            case ('Shirt') :
+                outfitPart = <Shirt colour={this.props.colour}/>
+                break;
             case ('Tee') :
                 outfitPart = <Tee colour={this.props.colour}/>                
                 break;            
