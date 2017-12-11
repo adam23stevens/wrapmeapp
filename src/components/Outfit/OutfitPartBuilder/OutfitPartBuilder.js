@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Tee from './OutfitParts/Tops/Tee/Tee';
 import Jeans from './OutfitParts/Bottoms/Jeans/Jeans';
 import LeatherBelt from './OutfitParts/Accessories/Belts/LeatherBelt/LeatherBelt';
-import Shoes from './OutfitParts/Shoes/Shoes';
+import Trainers from './OutfitParts/Shoes/Trainers/Trainers';
 import Shirt from './OutfitParts/Tops/Shirt/Shirt';
 
 class OutfitPartBuilder extends Component {
@@ -23,8 +23,8 @@ class OutfitPartBuilder extends Component {
             case ('Belt'):
                 outfitPart = <LeatherBelt colour={this.props.colour}/>
                 break;                         
-            case ('ShoeTop') :
-                outfitPart = <Shoes colour={this.props.colour}/>
+            case ('TrainersTop') :
+                outfitPart = <Trainers colour={this.props.colour}/>
                 break;
             default:
                 outfitPart = null;

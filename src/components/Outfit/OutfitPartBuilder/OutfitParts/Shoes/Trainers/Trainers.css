@@ -1,11 +1,11 @@
-.Shoes {
+.Trainers {
     position: relative;
     margin: 80px auto;
     height: 11%;
     width: 10%;
 }
 
-.ShoeTop {
+.TrainersTop {
     position: absolute;
     height: 100%;
     width: 45%;
@@ -13,7 +13,7 @@
     border-radius: 5px 5px 12px 12px;
 }
 
-.ShoeTopRight{
+.TrainersTopRight{
     position: absolute;
     height: 100%;
     width: 45%;
@@ -21,7 +21,7 @@
     border-radius: 5px 5px 12px 12px;
 }
 
-.ShoeTopHole {
+.TrainersTopHole {
     position: absolute;
     background-color: black;
     left: 22%;
@@ -31,7 +31,7 @@
     border-radius: 15px 15px 15px 15px;
 }
 
-.ShoeTopDetail{
+.TrainersTopDetail{
     position: absolute;
     border: 1px dashed white;
     height: 5%;
