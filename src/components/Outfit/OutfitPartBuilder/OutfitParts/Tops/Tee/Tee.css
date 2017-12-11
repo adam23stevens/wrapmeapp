@@ -1,0 +1,34 @@
+.Tee {
+    height: 16%;
+    width: 10%;
+    border-radius: 0 0 10px 10px;    
+    margin: 2% auto;
+    position:relative;    
+}
+
+.TeeNeck{
+    position: absolute;
+    width: 40%;
+    height: 13%;
+    border-radius: 0 0 15px 15px;
+    background-color: white;
+    align-items: center;
+    left: 30%;
+}
+
+.TeeSleeve{
+    height: 40%;
+    width: 35%;
+    position: absolute;        
+    background: inherit;      
+}
+
+.TeeSleeveLeft{
+    border-radius: 20px 0 0 5px;
+    left: -34%;    
+}
+
+.TeeSleeveRight {
+    border-radius: 0 20px 5px 0;
+    left: 101%;
+}

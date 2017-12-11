@@ -1,23 +1,22 @@
 import React from 'react';
-import OutfitPart from './OutfitPart/OutfitPart';
+import OutfitPartBuilder from './OutfitPartBuilder/OutfitPartBuilder';
 import classes from './Outfit.css';
 
 const outfit = (props) => {
-    // const outfitPartsArr = Object.keys(props.outfitParts).map(
+    // const OutfitPartBuildersArr = Object.keys(props.OutfitPartBuilders).map(
     //     igKey => {
-    //         return [...Array(props.outfitParts[igKey])].map((_, i) =>
-    //             <OutfitPart key={igKey + i} type={igKey}/>
+    //         return [...Array(props.OutfitPartBuilders[igKey])].map((_, i) =>
+    //             <OutfitPartBuilder key={igKey + i} type={igKey}/>
     //         )
     //     }
     // )
 
     return (
         <div className={classes.Outfit}>
-            <OutfitPart type='Tee' colour='Red'/>     
-            <OutfitPart type='Belt' colour='Black'/>
-            <OutfitPart type='Jeans' colour='Blue'/>   
-            <OutfitPart type='ShoeTop' colour='Navy'/>
-            {/* <OutfitPart type='ShoeTop' colour='Navy'/> */}            
+            <OutfitPartBuilder type='Tee' colour='Red'/>     
+            <OutfitPartBuilder type='Belt' colour='Black'/>
+            <OutfitPartBuilder type='Jeans' colour='Blue'/>   
+            <OutfitPartBuilder type='ShoeTop' colour='Red'/>                     
         </div>
     )
 }

@@ -1,0 +1,34 @@
+.Belt {    
+    width: 10%;
+    margin: 2% auto;
+    position: relative;
+    height: 2%;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: inset 2px 1px black;        
+}
+
+.BeltBuckle {
+    position: relative;
+    left: 20%;
+    top: -30%;
+    width: 30%;
+    height: 110%;    
+    border: 4px solid lightgrey;
+    border-radius: 2px 2px 2px 2px;
+}
+
+.BeltBuckleDetail{
+    position: absolute;
+    width: 60%;
+    height: 25%;
+    background-color: lightgrey;
+    top:25%;
+}
+
+.BeltHole{        
+    position: absolute;
+    width: 30%;        
+    border-top: 7px dotted black;
+    top: 25%;
+    left: 70%;
+}
