@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import classes from './OutfitPartBuilder.css';
 import PropTypes from 'prop-types';
 import Tee from './OutfitParts/Tops/Tee/Tee';
 import Jeans from './OutfitParts/Bottoms/Jeans/Jeans';
@@ -9,45 +8,19 @@ import Shoes from './OutfitParts/Shoes/Shoes';
 class OutfitPartBuilder extends Component {
     render () {          
         let outfitPart = null;
-        let colour = null;
         
-        switch(this.props.colour) {
-            case ('Red') :
-                colour = classes.Red;                
-            break;
-            case ('Blue') :
-                colour = classes.Blue;
-            break;
-            case ('Navy') :
-                colour = classes.Navy;
-            break;
-            case ('Green'):
-                colour = classes.Green;
-            break;
-            case ('Grey'):
-                colour = classes.Grey;
-            break;
-            case ('BlackLeather'):
-                colour = classes.BlackLeather;
-            break;
-            default:
-                colour = null;
-            break;
-        }
-
-
         switch(this.props.type) {
             case ('Tee') :
-                outfitPart = <Tee className='Red'/>                
+                outfitPart = <Tee colour={this.props.colour}/>                
                 break;            
             case ('Jeans') :
-                outfitPart = <Jeans className={colour}/> 
+                outfitPart = <Jeans colour={this.props.colour}/> 
                 break;
             case ('Belt'):
-                outfitPart = <LeatherBelt className={colour}/>
+                outfitPart = <LeatherBelt colour={this.props.colour}/>
                 break;                         
             case ('ShoeTop') :
-                outfitPart = <Shoes className={colour}/>
+                outfitPart = <Shoes colour={this.props.colour}/>
                 break;
             default:
                 outfitPart = null;

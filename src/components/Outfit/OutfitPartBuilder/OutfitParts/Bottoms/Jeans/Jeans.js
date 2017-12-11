@@ -1,14 +1,22 @@
 import React from 'react';
 import classes from './Jeans.css';
+import {default as colours} from '../../../OutfitPartBuilder.css';
 
-const Jeans = (props) => (
-    <div className={classes.Jeans} style={{background: props.colour}}>
-    <div className={classes.JeansZip}/>
-    <div className={classes.JeansLegLeft}/>
-    <div className={classes.JeansLegRight}>
-        <div className={classes.JeansStitch}/>
+const Jeans = (props) => {
+
+    const colourArr = Object.keys(colours).map(cKey => {
+        return colours[cKey]
+    })
+    .find(c => c.indexOf(props.colour) > -1);
+    
+    return (           
+    <div className={[classes.Jeans, colourArr].join(' ')}>
+        <div className={classes.JeansZip}/>
+        <div className={classes.JeansLegLeft}/>
+        <div className={classes.JeansLegRight}>
+            <div className={classes.JeansStitch}/>
+        </div>
     </div>
-</div>
-)
+)}
 
 export default Jeans;

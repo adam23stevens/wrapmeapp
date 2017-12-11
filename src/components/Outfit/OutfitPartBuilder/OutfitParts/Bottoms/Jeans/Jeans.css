@@ -1,0 +1,44 @@
+.Jeans{
+    height: 5.5%;
+    width: 10%;    
+    margin: 2% auto;
+    position: relative;
+    border-radius: 5px 5px 0 0;    
+}
+
+.JeansZip{
+    position:absolute;
+    height:70%;
+    top: 15%;
+    width:2%;
+    border: 1px dashed black;
+    left: 49%;
+}
+
+.JeansLegLeft{
+    position: absolute;
+    margin-right: 12px;
+    background: inherit;
+    height: 300%;
+    width: 45%;
+    left: 0%;
+    border-radius: 5px 0 5px 5px;    
+    border-left: 2px dashed black;
+}
+
+.JeansLegRight{
+    position: absolute;
+    margin-right: 12px;
+    background: inherit;
+    height: 300%;
+    width: 45%;
+    left: 55%;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 1px black;    
+}
+.JeansStitch {
+    border: 1px dashed yellow;
+    position: absolute;    
+    height: 95%;
+    left: 80%;
+}
