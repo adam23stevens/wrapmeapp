@@ -4,6 +4,10 @@
     border-radius: 0 0 10px 10px;    
     margin: 2% auto;
     position:relative;    
+
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
 }
 
 .TeeNeck{
@@ -26,9 +30,15 @@
 .TeeSleeveLeft{
     border-radius: 20px 0 0 5px;
     left: -34%;    
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
 }
 
 .TeeSleeveRight {
     border-radius: 0 20px 5px 0;
     left: 100%;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
 }

@@ -3,6 +3,7 @@
     margin: 13rem auto;
     height: 18%;
     width: 20%;
+    
 }
 
 .TrainersTop {
@@ -11,6 +12,9 @@
     width: 45%;
     left: -3%;
     border-radius: 5px 5px 12px 12px;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
 }
 
 .TrainersTopRight{
@@ -19,6 +23,9 @@
     width: 45%;
     left: 60%;
     border-radius: 5px 5px 12px 12px;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
 }
 
 .TrainersTopHole {
