@@ -12,8 +12,8 @@ const Jeans = (props) => {
     return (           
     <div className={[classes.Jeans, colourArr].join(' ')}>
         <div className={classes.JeansZip}/>
-        <div className={classes.JeansLegLeft}/>
-        <div className={classes.JeansLegRight}>
+        <div className={classes.JeansLeg}/>
+        <div className={[classes.JeansLeg, classes.JeansLegRight].join(' ')}>
             <div className={classes.JeansStitch}/>
         </div>
     </div>

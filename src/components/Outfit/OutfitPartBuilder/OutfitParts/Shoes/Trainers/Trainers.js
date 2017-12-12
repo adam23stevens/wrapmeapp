@@ -14,7 +14,7 @@ const Trainers = (props) => {
             <div className={classes.TrainersTopHole}/>
             <div className={classes.TrainersTopDetail}/>
         </div>                                    
-        <div className={[classes.TrainersTopRight, colourArr].join(' ')}>
+        <div className={[classes.TrainersTop, classes.TrainersTopRight, colourArr].join(' ')}>
             <div className={classes.TrainersTopHole}/>
             <div className={classes.TrainersTopDetail}/>
         </div>                

@@ -14,7 +14,7 @@ const Shirt = (props) => {
         <div className={classes.ShirtCollarLeft}/>
         <div className={classes.ShirtNeck}/>        
         <div className={classes.ShirtButtons}/>               
-        <div className={[classes.ShirtSleeve, classes.ShirtSleeveLeft].join(' ')}/>                     
+        <div className={classes.ShirtSleeve}/>                     
         <div className={[classes.ShirtSleeve, classes.ShirtSleeveRight].join(' ')}/>                     
     </div>
     )

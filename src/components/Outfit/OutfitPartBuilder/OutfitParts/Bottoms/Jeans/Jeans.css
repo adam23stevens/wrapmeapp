@@ -18,7 +18,7 @@
     left: 50%;
 }
 
-.JeansLegLeft{
+.JeansLeg{
     position: absolute;
     margin-right: 12px;
     background: inherit;
@@ -33,17 +33,8 @@
 }
 
 .JeansLegRight{
-    position: absolute;
-    margin-right: 12px;
-    background: inherit;
-    height: 310%;
-    width: 45%;
-    left: 55%;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 2px 1px black;    
-    -webkit-box-shadow: 0 10px 6px -6px #777;
-    -moz-box-shadow: 0 10px 6px -6px #777;
-         box-shadow: 0 10px 6px -6px #777;
+    transform: translatex(125%);
+    border-left: none;
 }
 .JeansStitch {
     border: 1px dashed yellow;

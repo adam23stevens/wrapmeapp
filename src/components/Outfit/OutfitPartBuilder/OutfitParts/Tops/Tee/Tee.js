@@ -11,7 +11,7 @@ const Tee = (props) =>  {
     return (
     <div className={[classes.Tee, colourArr].join(' ')}>                                    
         <div className={classes.TeeNeck}/>                        
-        <div className={[classes.TeeSleeve, classes.TeeSleeveLeft].join(' ')}/>                     
+        <div className={classes.TeeSleeve}/>                     
         <div className={[classes.TeeSleeve, classes.TeeSleeveRight].join(' ')}/>                     
     </div>
 )}
