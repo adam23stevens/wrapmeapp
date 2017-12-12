@@ -6,7 +6,7 @@ const Trainers = (props) => {
     const colourArr = Object.keys(colours).map(cKey => {
         return colours[cKey]
     })
-    .find(c => c.indexOf(props.colour) > -1);
+    .find(c => c === 'OutfitPartBuilder__' + props.colour + '__-hase-base64-5-');
     
     return (
     <div className={classes.Trainers}>

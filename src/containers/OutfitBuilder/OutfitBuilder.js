@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Aux from '../../hoc/Aux/Aux';
+import wrap from '../../hoc/wrap/wrap';
 import Outfit from '../../components/Outfit/Outfit';
 //import BuildControls from '../../components/Outfit/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
@@ -115,7 +115,7 @@ class OutfitBuilder extends Component {
         
         if (this.state.outfitParts) {
             outfit = (
-                <Aux>
+                <wrap>
                     <Outfit outfitParts = {this.state.outfitParts}/>
                     {/* <BuildControls 
                         addType={this.addOutfitPartHandler}
@@ -124,8 +124,8 @@ class OutfitBuilder extends Component {
                         price={this.state.totalPrice}
                         purchasable={this.state.purchasable}
                         purchasing={this.updatePurchasing}/> */}
-                        <h2>Add remove controls here</h2>
-                </Aux>
+                        
+                </wrap>
                 );
             orderSummary = 
                 // <OrderSummary 
@@ -141,12 +141,12 @@ class OutfitBuilder extends Component {
         }
 
         return (
-            <Aux>
+            <wrap>
                 <Modal show={this.state.purchasing} modalClose={this.cancelPurchasing}>
                     {orderSummary}
                 </Modal>
                 {outfit}                       
-            </Aux>
+            </wrap>
         );
     }
 }

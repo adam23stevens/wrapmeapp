@@ -5,10 +5,13 @@ import classes from './Outfit.css';
 const outfit = (props) => 
     (
         <div className={classes.Outfit}>
-            <OutfitPartBuilder type='Tee' colour='Red'/>                 
-            <OutfitPartBuilder type='Belt' colour='Black'/>
-            <OutfitPartBuilder type='Jeans' colour='Blue'/>   
-            <OutfitPartBuilder type='TrainersTop' colour='Navy'/>                     
+            
+
+
+            <OutfitPartBuilder type='Tee' colour='DiagonalStripes'/>                 
+            <OutfitPartBuilder type='Belt' colour='BlackLeather'/>
+            <OutfitPartBuilder type='Jeans' colour='BlueDenim'/>   
+            <OutfitPartBuilder type='TrainersTop' colour='BlackDenim'/>                     
         </div>
     )
 

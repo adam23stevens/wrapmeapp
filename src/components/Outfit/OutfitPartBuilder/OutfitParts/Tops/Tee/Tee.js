@@ -6,7 +6,7 @@ const Tee = (props) =>  {
     const colourArr = Object.keys(colours).map(igKey => {
         return colours[igKey]
     })
-    .find(c => c.indexOf(props.colour) > -1);
+    .find(c => c === 'OutfitPartBuilder__' + props.colour + '__-hase-base64-5-');
     
     return (
     <div className={[classes.Tee, colourArr].join(' ')}>                                    

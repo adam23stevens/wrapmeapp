@@ -3,7 +3,7 @@ import classes from './SideDrawer.css';
 import Logo from '../../UI/Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Backdrop from '../../UI/Backdrop/Backdrop';
-import Aux from '../../../hoc/Aux/Aux';
+import wrap from '../../../hoc/wrap/wrap';
 
 const SideDrawer = (props) => {
     let attachedClasses = [classes.SideDrawer, classes.Close];
@@ -12,7 +12,7 @@ const SideDrawer = (props) => {
     }
 
     return(
-        <Aux>
+        <wrap>
             <Backdrop show={props.isOpen} modalClose={props.close}/>
         <div className={attachedClasses.join(' ')}>
             <div className={classes.Logo}>
@@ -22,7 +22,7 @@ const SideDrawer = (props) => {
                 <NavigationItems/>
             </nav>
         </div>
-        </Aux>
+        </wrap>
     )
 }
 
