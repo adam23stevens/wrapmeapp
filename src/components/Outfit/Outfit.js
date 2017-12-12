@@ -8,7 +8,7 @@ const outfit = (props) =>
             
 
 
-            <OutfitPartBuilder type='Tee' colour='DiagonalStripes'/>                 
+            <OutfitPartBuilder type='Tee' colour='Tartan'/>                 
             <OutfitPartBuilder type='Belt' colour='BlackLeather'/>
             <OutfitPartBuilder type='Jeans' colour='BlueDenim'/>   
             <OutfitPartBuilder type='TrainersTop' colour='BlackDenim'/>                     
