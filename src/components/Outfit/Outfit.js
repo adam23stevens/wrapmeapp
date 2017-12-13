@@ -16,8 +16,9 @@ class Outfit extends Component {
             tops: {
                 outfitParts: [
                     { type: 'Tee', relChance: '10', colour: 'Red' },
+                    { type: 'Tee', relChance: '15', colour: 'Weave'},
                     { type: 'Tee', relChance: '40', colour: 'Tartan' },
-                    { type: 'Shirt', relChance: '60', colour: 'Blue' },
+                    { type: 'Shirt', relChance: '60', colour: 'DiagonalStripes' },
                     { type: 'Shirt', relChance: '100', colour: 'BlackLeather' }
                 ],
                 chance: '100',
@@ -26,16 +27,18 @@ class Outfit extends Component {
             bottoms: {
                 outfitParts: [
                     { type: 'Chinos', relChance: '10', colour: 'Red' },
-                    { type: 'Jeans', relChance: '30', colour: 'Blue' },
+                    { type: 'Jeans', relChance: '30', colour: 'BlueDenim' },
                     { type: 'Jeans', relChance: '50', colour: 'BlackLeather' },
-                    { type: 'Chinos', relChance: '100', colour: 'Green' }
+                    { type: 'Jeans', relChance: '90', colour: 'BlackDenim'},
+                    { type: 'Chinos', relChance: '100', colour: 'BlueDenim' }
                 ],
                 chance: '100',
                 type: 'bottom'
             },
             shoes: {
                 outfitParts: [
-                    { type: 'Trainers', relChance: '75', colour: 'BlackLeather' },
+                    { type: 'Trainers', relChance: '10', colour: 'Red'},
+                    { type: 'Trainers', relChance: '50', colour: 'BlackLeather' },
                     { type: 'Boots', relChance: '100', colour: 'BlackLeather' }
                 ],
                 chance: '100',
@@ -64,13 +67,12 @@ class Outfit extends Component {
         //continue to loop over and over until one of them passes the chance test
 
         //how many times to call Math.random() ? 
-        //*currently once for parent chance and once for child chance*
 
         //tops
         const parentChance = Math.random() * 100;
-        const childChance = Math.random() * 100;
 
         if (parentChance <= this.state.outfitPartsData.hats.chance) {
+            const childChance = Math.random() * 100;
             const topsArray = Object.keys(this.state.outfitPartsData.hats.outfitParts).map(igKey => {
                 return this.state.outfitPartsData.hats.outfitParts[igKey]
             });
@@ -82,6 +84,7 @@ class Outfit extends Component {
             }
         }
         if (parentChance <= this.state.outfitPartsData.tops.chance) {
+            const childChance = Math.random() * 100;
             const topsArray = Object.keys(this.state.outfitPartsData.tops.outfitParts).map(igKey => {
                 return this.state.outfitPartsData.tops.outfitParts[igKey]
             });
@@ -93,6 +96,7 @@ class Outfit extends Component {
             }
         }
         if (parentChance <= this.state.outfitPartsData.belts.chance) {
+            const childChance = Math.random() * 100;
             const topsArray = Object.keys(this.state.outfitPartsData.belts.outfitParts).map(igKey => {
                 return this.state.outfitPartsData.belts.outfitParts[igKey]
             });
@@ -104,6 +108,7 @@ class Outfit extends Component {
             }
         }
         if (parentChance <= this.state.outfitPartsData.bottoms.chance) {
+            const childChance = Math.random() * 100;
             const topsArray = Object.keys(this.state.outfitPartsData.bottoms.outfitParts).map(igKey => {
                 return this.state.outfitPartsData.bottoms.outfitParts[igKey]
             })
@@ -115,6 +120,7 @@ class Outfit extends Component {
             }
         }
         if (parentChance <= this.state.outfitPartsData.shoes.chance) {
+            const childChance = Math.random() * 100;
             const topsArray = Object.keys(this.state.outfitPartsData.shoes.outfitParts).map(igKey => {
                 return this.state.outfitPartsData.shoes.outfitParts[igKey]
             })
@@ -129,13 +135,7 @@ class Outfit extends Component {
         return (
             <div className={classes.Outfit}>
                 <p style={{fontSize: '14px'}}> Parent Number: {parentChance.toFixed(2)}</p>
-                <p style={{fontSize: '14px'}}>Child Number: {childChance.toFixed(2)}</p>
                 {outfitParts.map(part => <OutfitPartBuilder key={part.type} type={part.type} colour={part.colour} />)}
-                {/* <OutfitPartBuilder type='Tophat' colour='BlackLeather'/>
-            <OutfitPartBuilder type='Shirt' colour='Tartan'/>                 
-            <OutfitPartBuilder type='Belt' colour='BlackLeather'/>
-            <OutfitPartBuilder type='Chinos' colour='Blue'/>   
-            <OutfitPartBuilder type='Boots' colour='BlackDenim'/>                      */}
             </div>
         )
     }
