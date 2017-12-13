@@ -1,15 +1,8 @@
 import React from 'react';
 import classes from './Shirt.css';
-import {default as colours} from '../../../OutfitPartBuilder.css';
 
-const Shirt = (props) => {
-    const colourArr = Object.keys(colours).map(igKey => {
-        return colours[igKey]
-    })
-    .find(c => c === 'OutfitPartBuilder__' + props.colour + '__-hase-base64-5-');
-    
-    return (
-    <div className={[classes.Shirt, colourArr].join(' ')}>                                    
+const Shirt = (props) => (
+    <div className={[classes.Shirt, props.colour].join(' ')}>                                    
         <div className={classes.ShirtCollar}/> 
         <div className={classes.ShirtCollarLeft}/>
         <div className={classes.ShirtNeck}/>        
@@ -18,6 +11,5 @@ const Shirt = (props) => {
         <div className={[classes.ShirtSleeve, classes.ShirtSleeveRight].join(' ')}/>                     
     </div>
     )
-}
 
 export default Shirt;

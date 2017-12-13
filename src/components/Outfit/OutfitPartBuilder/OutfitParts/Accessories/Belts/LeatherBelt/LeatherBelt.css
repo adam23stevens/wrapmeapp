@@ -31,8 +31,8 @@
 
 .BeltHole{        
     position: absolute;
-    width: 40%;        
-    border-top: 0.75rem dotted black;
+    width: 20%;        
+    border-top: 0.25rem dotted black;
     top: 30%;
     left: 52%;
 }
