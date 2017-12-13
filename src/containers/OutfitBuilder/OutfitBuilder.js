@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import wrap from '../../hoc/wrap/wrap';
+import Wrap from '../../hoc/wrap/wrap';
 import Outfit from '../../components/Outfit/Outfit';
 //import BuildControls from '../../components/Outfit/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
@@ -115,7 +115,7 @@ class OutfitBuilder extends Component {
         
         if (this.state.outfitParts) {
             outfit = (
-                <wrap>
+                <Wrap>
                     <Outfit outfitParts = {this.state.outfitParts}/>
                     {/* <BuildControls 
                         addType={this.addOutfitPartHandler}
@@ -125,7 +125,7 @@ class OutfitBuilder extends Component {
                         purchasable={this.state.purchasable}
                         purchasing={this.updatePurchasing}/> */}
                         
-                </wrap>
+                </Wrap>
                 );
             orderSummary = 
                 // <OrderSummary 
@@ -141,12 +141,12 @@ class OutfitBuilder extends Component {
         }
 
         return (
-            <wrap>
+            <Wrap>
                 <Modal show={this.state.purchasing} modalClose={this.cancelPurchasing}>
                     {orderSummary}
                 </Modal>
                 {outfit}                       
-            </wrap>
+            </Wrap>
         );
     }
 }

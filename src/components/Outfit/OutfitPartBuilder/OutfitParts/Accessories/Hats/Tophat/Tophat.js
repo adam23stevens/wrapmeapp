@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from './Tophat.css';
-import {default as colours} from '../../../../OutfitPartBuilder.css';
 
 const Tophat = (props) => (
         <div className={classes.topHatWrap}>

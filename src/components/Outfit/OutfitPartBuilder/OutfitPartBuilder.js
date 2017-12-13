@@ -32,13 +32,13 @@ class OutfitPartBuilder extends Component {
             case ('Chinos') :
                 outfitPart = <Chinos colour={colourArr}/>
                 break;
-            case ('Belt'):
+            case ('LeatherBelt'):
                 outfitPart = <LeatherBelt colour={colourArr}/>
                 break;                         
             case ('Tophat') :
                 outfitPart = <Tophat colour={colourArr}/>
                 break;
-            case ('TrainersTop') :
+            case ('Trainers') :
                 outfitPart = <Trainers colour={colourArr}/>
                 break;
             case ('Boots') :

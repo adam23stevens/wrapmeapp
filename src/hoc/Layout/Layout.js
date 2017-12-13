@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import wrap from '../wrap/wrap'
+import Wrap from '../wrap/wrap'
 import classes from './Layout.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
@@ -20,7 +20,7 @@ class Layout extends Component {
 
     render(){
         return (
-        <wrap>
+        <Wrap>
             <Toolbar mobileNavClicked={this.showSideDrawerHandler}/>
             <SideDrawer 
                 isOpen={this.state.showSideDrawer} 
@@ -28,7 +28,7 @@ class Layout extends Component {
             <main className={classes.Content}>
                 {this.props.children}
             </main>
-        </wrap>
+        </Wrap>
         )
     }
 }

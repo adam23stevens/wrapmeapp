@@ -1,3 +1,3 @@
-const wrap = (props) => props.children;
+const Wrap = (props) => props.children;
 
-export default wrap;
+export default Wrap;
