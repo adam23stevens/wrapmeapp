@@ -5,6 +5,7 @@ import Jeans from './OutfitParts/Bottoms/Jeans/Jeans';
 import Chinos from './OutfitParts/Bottoms/Chinos/Chinos';
 import LeatherBelt from './OutfitParts/Accessories/Belts/LeatherBelt/LeatherBelt';
 import Trainers from './OutfitParts/Shoes/Trainers/Trainers';
+import Boots from './OutfitParts/Shoes/Boots/Boots';
 import Shirt from './OutfitParts/Tops/Shirt/Shirt';
 import Tophat from './OutfitParts/Accessories/Hats/Tophat/Tophat';
 
@@ -28,11 +29,14 @@ class OutfitPartBuilder extends Component {
             case ('Belt'):
                 outfitPart = <LeatherBelt colour={this.props.colour}/>
                 break;                         
+            case ('Tophat') :
+                outfitPart = <Tophat colour={this.props.colour}/>
+                break;
             case ('TrainersTop') :
                 outfitPart = <Trainers colour={this.props.colour}/>
                 break;
-            case ('Tophat') :
-                outfitPart = <Tophat colour={this.props.colour}/>
+            case ('Boots') :
+                outfitPart = <Boots colour={this.props.colour}/>
                 break;
             default:
                 outfitPart = null;

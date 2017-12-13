@@ -13,10 +13,14 @@ const Trainers = (props) => {
         <div className={[classes.TrainersTop, colourArr].join(' ')}>
             <div className={classes.TrainersTopHole}/>
             <div className={classes.TrainersTopDetail}/>
+            <div className={[classes.TrainersTopDetail, classes.TrainersTopDetailBottom].join(' ')}/>
+            <div className={[classes.TrainersTopDetail, classes.TrainersTopDetailMiddle].join(' ')}/>
         </div>                                    
         <div className={[classes.TrainersTop, classes.TrainersTopRight, colourArr].join(' ')}>
             <div className={classes.TrainersTopHole}/>
             <div className={classes.TrainersTopDetail}/>
+            <div className={[classes.TrainersTopDetail, classes.TrainersTopDetailBottom].join(' ')}/>
+            <div className={[classes.TrainersTopDetail, classes.TrainersTopDetailMiddle].join(' ')}/>
         </div>                
     </div>
 )}

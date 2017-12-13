@@ -1,28 +1,26 @@
-.Trainers {
+.Boots {
     position: relative;
     margin: 8rem auto;
     height: 18%;
     width: 20%;
-    
 }
 
-.TrainersTop {
+.BootsTop {
     position: absolute;
     height: 100%;
     width: 45%;
     left: -3%;
     border-radius: 5px 5px 12px 12px;
-    border-left: 5px dotted white;
     -webkit-box-shadow: 0 10px 6px -6px #777;
     -moz-box-shadow: 0 10px 6px -6px #777;
-         box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
 }
 
-.TrainersTopRight{
+.BootsTopRight{
     transform: translateX(140%);
 }
 
-.TrainersTopHole {
+.BootsTopHole {
     position: absolute;
     background-color: black;
     left: 22%;
@@ -30,21 +28,18 @@
     width: 60%;
     height: 40%;
     border-radius: 15px 15px 15px 15px;
-    border-bottom: 0.9px solid white;
+    border-bottom: 5px solid grey;
 }
 
-.TrainersTopDetail{
+.BootsTopDetail{
     position: absolute;
     border: 1px solid white;
+    height: 2%;
     width: 60%;
     top: 60%;
     left: 20%;
 }
 
-.TrainersTopDetailMiddle{
-    transform: translateY(4px);
-}
-
-.TrainersTopDetailBottom{
+.BootsTopDetailBottom{
     transform: translateY(8px);
 }
