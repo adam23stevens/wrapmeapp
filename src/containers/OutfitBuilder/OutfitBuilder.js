@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Wrap from '../../hoc/wrap/wrap';
 import Outfit from '../../components/Outfit/Outfit';
 //import BuildControls from '../../components/Outfit/BuildControls/BuildControls';
@@ -23,61 +23,61 @@ class OutfitBuilder extends Component {
             shoes: 'black'
         }
     }
-    
-    updatePurchasable(outfitParts){        
+
+    updatePurchasable(outfitParts) {
         const sum = Object.keys(outfitParts).map(igKey => {
             return outfitParts[igKey]
         })
-        .reduce((sum, el) => {
-            return sum + el
-        }, 0);
+            .reduce((sum, el) => {
+                return sum + el
+            }, 0);
 
         this.setState({
             purchasable: sum > 0
         })
     }
-    
-    addRemoveOutfitPart = (type, isAdding) => {        
+
+    addRemoveOutfitPart = (type, isAdding) => {
         const currTypeCnt = this.state.outfitParts[type];
-        if(!isAdding && currTypeCnt <= 0) {
+        if (!isAdding && currTypeCnt <= 0) {
             return;
         }
         const newTypeCnt = isAdding ? currTypeCnt + 1
-                                    : currTypeCnt - 1;
-        const newTotalPrice = isAdding ? this.state.totalPrice + OUTFIT_PRICES[type] 
-                                       : this.state.totalPrice - OUTFIT_PRICES[type];
-        const newTypes = {...this.state.outfitParts};
+            : currTypeCnt - 1;
+        const newTotalPrice = isAdding ? this.state.totalPrice + OUTFIT_PRICES[type]
+            : this.state.totalPrice - OUTFIT_PRICES[type];
+        const newTypes = { ...this.state.outfitParts };
 
         newTypes[type] = newTypeCnt;
         this.setState({
             outfitParts: newTypes,
             totalPrice: newTotalPrice
-        });        
+        });
         this.updatePurchasable(newTypes);
     }
 
     addOutfitPartHandler = (type) => {
-        this.addRemoveOutfitPart(type, true);        
+        this.addRemoveOutfitPart(type, true);
     }
 
     removeOutfitPartHandler = (type) => {
         this.addRemoveOutfitPart(type, false);
     }
 
-    updatePurchasing = () => {
+    updateAdding = () => {
         this.setState({
-            purchasing: true
+            adding: true
         });
     }
 
-    cancelPurchasing = () => {
+    cancelAdding = () => {
         this.setState({
-            purchasing: false
+            adding: false
         });
     }
 
-    continuePurchase = () => {
-        this.setState({loading: true});
+    continueAdding = () => {
+        this.setState({ loading: true });
 
         const data = {
             totalParts: this.state.outfitParts,
@@ -95,14 +95,14 @@ class OutfitBuilder extends Component {
         };
 
         axios.post('/orders.json', data)
-            .then(response => this.setState({loading: false, purchasing: false}))
+            .then(response => this.setState({ loading: false, adding: false }))
             .catch(error => {
-                this.setState({loading: false, purchasing: false}); 
+                this.setState({ loading: false, adding: false });
                 console.log(error);
             });
-        }                
+    }
 
-    render(){
+    render() {
         const disabledCntrl = {
             ...this.state.outfitParts
         };
@@ -110,24 +110,24 @@ class OutfitBuilder extends Component {
             disabledCntrl[key] = disabledCntrl[key] <= 0;
         }
 
-        let outfit = this.state.error ? <p>Data can't be loaded</p> : <Spinner/> 
+        let outfit = this.state.error ? <p>Data can't be loaded</p> : <Spinner />
         let orderSummary = null;
-        
+
         if (this.state.outfitParts) {
             outfit = (
                 <Wrap>
-                    <Outfit outfitParts = {this.state.outfitParts}/>
+                    <Outfit outfitParts={this.state.outfitParts} />
                     {/* <BuildControls 
                         addType={this.addOutfitPartHandler}
                         removeType={this.removeOutfitPartHandler}
                         disabled={disabledCntrl}
                         price={this.state.totalPrice}
                         purchasable={this.state.purchasable}
-                        purchasing={this.updatePurchasing}/> */}
-                        
+                        adding={this.updatePurchasing}/> */}
+
                 </Wrap>
-                );
-            orderSummary = 
+            );
+            orderSummary =
                 // <OrderSummary 
                 //     orderParts={this.state.outfitParts}
                 //     cancelClicked={this.cancelPurchasing}
@@ -135,17 +135,17 @@ class OutfitBuilder extends Component {
                 //     totalPrice={this.state.totalPrice}/>;                    
                 <h2>Summary / recording component here</h2>
         }
-            
+
         if (this.state.loading) {
-            orderSummary = <Spinner/>
+            orderSummary = <Spinner />
         }
 
         return (
             <Wrap>
-                <Modal show={this.state.purchasing} modalClose={this.cancelPurchasing}>
+                <Modal show={this.state.adding} modalClose={this.cancelPurchasing}>
                     {orderSummary}
                 </Modal>
-                {outfit}                       
+                {outfit}
             </Wrap>
         );
     }
