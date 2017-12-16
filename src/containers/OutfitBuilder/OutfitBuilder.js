@@ -3,10 +3,11 @@ import Wrap from '../../hoc/wrap/wrap';
 import Outfit from '../../components/Outfit/Outfit';
 //import BuildControls from '../../components/Outfit/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
-//import OrderSummary from '../../components/Outfit/OrderSummary/OrderSummary';
+import AddOutfitPart from '../../components/Outfit/AddOutfitPart/AddOutfitPart';
 import axios from '../../axios-orders';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import classes from './OutfitBuilder.css';
 
 const OUTFIT_PRICES = {
     salad: 0.4,
@@ -64,7 +65,7 @@ class OutfitBuilder extends Component {
         this.addRemoveOutfitPart(type, false);
     }
 
-    updateAdding = () => {
+    doAdding = () => {
         this.setState({
             adding: true
         });
@@ -78,28 +79,31 @@ class OutfitBuilder extends Component {
 
     continueAdding = () => {
         this.setState({ loading: true });
+        setTimeout(() => this.setState({loading: false}), 3000);
+        //do an axios put here
 
-        const data = {
-            totalParts: this.state.outfitParts,
-            totalPrice: this.state.totalPrice,
-            customer: {
-                name: 'Adam Stevens',
-                address: {
-                    street: '18 Liskeard Lodge',
-                    town: 'Caterham',
-                    postcode: 'CR3 6DN'
-                },
-                email: 'adam23stevens@gmail.com'
-            },
-            deliveryMethod: 'fastest'
-        };
 
-        axios.post('/orders.json', data)
-            .then(response => this.setState({ loading: false, adding: false }))
-            .catch(error => {
-                this.setState({ loading: false, adding: false });
-                console.log(error);
-            });
+        // const data = {
+        //     totalParts: this.state.outfitParts,
+        //     totalPrice: this.state.totalPrice,
+        //     customer: {
+        //         name: 'Adam Stevens',
+        //         address: {
+        //             street: '18 Liskeard Lodge',
+        //             town: 'Caterham',
+        //             postcode: 'CR3 6DN'
+        //         },
+        //         email: 'adam23stevens@gmail.com'
+        //     },
+        //     deliveryMethod: 'fastest'
+        // };
+
+        // axios.post('/orders.json', data)
+        //     .then(response => this.setState({ loading: false, adding: false }))
+        //     .catch(error => {
+        //         this.setState({ loading: false, adding: false });
+        //         console.log(error);
+        //     });
     }
 
     render() {
@@ -111,7 +115,7 @@ class OutfitBuilder extends Component {
         }
 
         let outfit = this.state.error ? <p>Data can't be loaded</p> : <Spinner />
-        let orderSummary = null;
+        let newOutfitPart = null;
 
         if (this.state.outfitParts) {
             outfit = (
@@ -127,23 +131,26 @@ class OutfitBuilder extends Component {
 
                 </Wrap>
             );
-            orderSummary =
+            newOutfitPart =
                 // <OrderSummary 
                 //     orderParts={this.state.outfitParts}
                 //     cancelClicked={this.cancelPurchasing}
                 //     continueClicked={this.continuePurchase}
-                //     totalPrice={this.state.totalPrice}/>;                    
-                <h2>Summary / recording component here</h2>
+                //     totalPrice={this.state.totalPrice}/>;  
+                <AddOutfitPart
+                        cancelClicked={this.cancelAdding}
+                        continueClicked={this.continueAdding}/>                  
         }
 
         if (this.state.loading) {
-            orderSummary = <Spinner />
+            newOutfitPart = <Spinner />
         }
 
         return (
             <Wrap>
-                <Modal show={this.state.adding} modalClose={this.cancelPurchasing}>
-                    {orderSummary}
+                <button className={classes.AddOutfitBtn} onClick={this.doAdding}>Add more clothes</button>
+                <Modal show={this.state.adding} modalClose={this.cancelAdding}>
+                    {newOutfitPart}
                 </Modal>
                 {outfit}
             </Wrap>

@@ -21,33 +21,51 @@ class OutfitPartBuilder extends Component {
         
         switch(this.props.type) {
             case ('Shirt') :
-                outfitPart = <Shirt colour={colourArr}/>
+                outfitPart = <Shirt 
+                    colour={colourArr}
+                    style={{height: '100%'}}
+                    displayMode={this.props.displayMode}/>
                 break;
             case ('Tee') :
-                outfitPart = <Tee colour={colourArr}/>                
+                outfitPart = <Tee 
+                    colour={colourArr}
+                    displayMode={this.props.displayMode}/>                
                 break;            
             case ('Jeans') :
-                outfitPart = <Jeans colour={colourArr}/> 
+                outfitPart = <Jeans 
+                    colour={colourArr}
+                    displayMode={this.props.displayMode}/> 
                 break;
             case ('Chinos') :
-                outfitPart = <Chinos colour={colourArr}/>
+                outfitPart = <Chinos 
+                    colour={colourArr}
+                    displayMode={this.props.displayMode}/>
                 break;
             case ('LeatherBelt'):
-                outfitPart = <LeatherBelt colour={colourArr}/>
+                outfitPart = <LeatherBelt 
+                    colour={colourArr}
+                    displayMode={this.props.displayMode}/>
                 break;                         
             case ('Tophat') :
-                outfitPart = <Tophat colour={colourArr}/>
+                outfitPart = <Tophat 
+                    colour={colourArr}
+                    displayMode={this.props.displayMode}/>
                 break;
             case ('Trainers') :
-                outfitPart = <Trainers colour={colourArr}/>
+                outfitPart = <Trainers 
+                    colour={colourArr}
+                    displayMode={this.props.displayMode}/>
                 break;
             case ('Boots') :
-                outfitPart = <Boots colour={colourArr}/>
+                outfitPart = <Boots 
+                    colour={colourArr}
+                    displayMode={this.props.displayMode}/>
                 break;
             default:
                 outfitPart = null;
                 break;
         }        
+
         return outfitPart;
     }
 }

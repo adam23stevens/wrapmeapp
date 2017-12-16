@@ -1,3 +1,7 @@
+.Default{
+    background: linear-gradient(#CCC, #555);
+}
+
 .Red{
     background: linear-gradient(rgb(236, 21, 21), #e70707);
 }
