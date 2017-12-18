@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Shirt.css';
 
 const Shirt = (props) => (
-    <div className={[classes.Shirt, props.colour].join(' ')}>                                    
+    <div className={[classes.Shirt, props.colour, props.display].join(' ')}>                                    
         <div className={classes.ShirtCollar}/> 
         <div className={classes.ShirtCollarLeft}/>
         <div className={classes.ShirtNeck}/>        

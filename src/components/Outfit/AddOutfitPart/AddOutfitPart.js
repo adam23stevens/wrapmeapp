@@ -21,6 +21,16 @@ class AddOutfitPart extends Component {
         displayIndex: 0
     }
 
+    prevSelItem = (prevState) => {
+        const prevIndex = (this.state.displayIndex - 1 < 0) 
+                        ? allAvailableItems.length -1
+                        : this.state.displayIndex - 1;
+
+        this.setState({
+            displayIndex: prevIndex
+        });
+    }
+
     nextSelItem = (prevState) => {
         //TODO Why is prevState.displayIndex undefined?
         const nextIndex = (this.state.displayIndex + 1 >= allAvailableItems.length)
@@ -37,16 +47,19 @@ class AddOutfitPart extends Component {
 
         return (
             <Wrap>
-                <p>part = {selOutfitPart}</p>
-                <p>Add new outfit part</p>
-                <div class={classes.outfitPartPicker}>
+                <h3>Add new outfit part</h3>
+                <p><i>{selOutfitPart}</i></p>
+                <div className={classes.outfitPartPickerWrap}>
+                    <Button clicked={this.prevSelItem} btnType="Success">Previous</Button>
+                    <div className={classes.outfitPartPicker}>
                     <OutfitPartBuilder 
-                    colour='Default' 
-                    type={selOutfitPart} 
-                    style={{zIndex: '100'}}
-                    displayMode='Add'/>
+                        colour='Default' 
+                        type={selOutfitPart} 
+                        style={{zIndex: '100'}}
+                        display='add'/>
+                    </div>
+                    <Button clicked={this.nextSelItem} btnType="Success">Next</Button>
                 </div>
-                <Button clicked={this.nextSelItem} btnType="Success">Next</Button>
                 <Button clicked={this.props.cancelClicked} btnType='Danger'>Cancel</Button>
                 <Button clicked={this.props.continueClicked} btnType='Success'>Ok</Button>
             </Wrap>

@@ -1,3 +1,8 @@
+.outfitPartPickerWrap{
+    display: flex;
+    flex-direction: row;
+}
+
 .outfitPartPicker {
     height: 12rem;
     width: 30rem;

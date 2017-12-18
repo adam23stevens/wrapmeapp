@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Boots.css';
 
 const Boots = (props) => (
-        <div className={classes.Boots}>
+        <div className={[classes.Boots, props.display].join(' ')}>
         <div className={[classes.BootsTop, props.colour].join(' ')}>
             <div className={classes.BootsTopHole}/>
             <div className={classes.BootsTopDetail}/>

@@ -1,5 +1,10 @@
 .Default{
-    background: linear-gradient(#CCC, #555);
+    background: linear-gradient(rgb(15, 8, 226), rgb(92, 101, 221));
+}
+
+.add{
+    height: 40% !important;
+    width: 30% !important;
 }
 
 .Red{

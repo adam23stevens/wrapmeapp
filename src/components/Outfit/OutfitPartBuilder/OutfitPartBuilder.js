@@ -16,6 +16,8 @@ class OutfitPartBuilder extends Component {
             return classes[cKey]
         })
         .find(c => c === 'OutfitPartBuilder__' + this.props.colour + '__-hase-base64-5-');
+
+        const display = 'OutfitPartBuilder__' + this.props.display + '__-hase-base64-5-';
         
         let outfitPart = null;
         
@@ -24,42 +26,42 @@ class OutfitPartBuilder extends Component {
                 outfitPart = <Shirt 
                     colour={colourArr}
                     style={{height: '100%'}}
-                    displayMode={this.props.displayMode}/>
+                    display={display}/>
                 break;
             case ('Tee') :
                 outfitPart = <Tee 
                     colour={colourArr}
-                    displayMode={this.props.displayMode}/>                
+                    display={display}/>                
                 break;            
             case ('Jeans') :
                 outfitPart = <Jeans 
                     colour={colourArr}
-                    displayMode={this.props.displayMode}/> 
+                    display={display}/> 
                 break;
             case ('Chinos') :
                 outfitPart = <Chinos 
                     colour={colourArr}
-                    displayMode={this.props.displayMode}/>
+                    display={display}/>
                 break;
             case ('LeatherBelt'):
                 outfitPart = <LeatherBelt 
                     colour={colourArr}
-                    displayMode={this.props.displayMode}/>
+                    display={display}/>
                 break;                         
             case ('Tophat') :
                 outfitPart = <Tophat 
                     colour={colourArr}
-                    displayMode={this.props.displayMode}/>
+                    display={display}/>
                 break;
             case ('Trainers') :
                 outfitPart = <Trainers 
                     colour={colourArr}
-                    displayMode={this.props.displayMode}/>
+                    display={display}/>
                 break;
             case ('Boots') :
                 outfitPart = <Boots 
                     colour={colourArr}
-                    displayMode={this.props.displayMode}/>
+                    display={display}/>
                 break;
             default:
                 outfitPart = null;
