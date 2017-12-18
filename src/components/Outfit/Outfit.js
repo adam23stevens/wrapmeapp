@@ -56,8 +56,11 @@ class Outfit extends Component {
         }
     }
 
-    onOutfitAccept = () => {
-        alert('accepted');
+    onOutfitAccept = (outfitParts) => {
+        alert('accepted parts: ');
+        outfitParts.map(o => {
+            alert(o.type + ' ' + o.colour);
+        })
     }
 
     onOutfitReject = () => {
@@ -145,11 +148,10 @@ class Outfit extends Component {
         return (
             <Wrap>
                 <div className={classes.Outfit}>
-                    <p style={{fontSize: '14px'}}> Parent Number: {parentChance.toFixed(2)}</p>
                     {outfitParts.map(part => <OutfitPartBuilder key={part.type} type={part.type} colour={part.colour} />)}
                 </div>
                 <div class={classes.acceptRejectButtons}>
-                <button className={classes.outfitAcceptBtn} onClick={this.onOutfitAccept}>ACCEPT</button>
+                <button className={classes.outfitAcceptBtn} onClick={() => this.onOutfitAccept(outfitParts)}>ACCEPT</button>
                 <button className={classes.outfitRejectBtn} onClick={this.onOutfitReject}>reject</button>
                 </div>
             </Wrap>
