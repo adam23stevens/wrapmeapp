@@ -18,10 +18,52 @@ const OUTFIT_PRICES = {
 
 class OutfitBuilder extends Component {
     state = {
-        outfitParts: {
-            shirt: 'red',
-            trouser: 'navy',
-            shoes: 'black'
+        outfitPartsData: {
+            hats: {
+                outfitParts: [
+                    { type: 'Tophat', relChance: '100', colour: 'BlackLeather' },
+                ],
+                chance: '25',
+                type: 'hat'
+            },
+            tops: {
+                outfitParts: [
+                    { type: 'Tee', relChance: '10', colour: 'Red' },
+                    { type: 'Tee', relChance: '15', colour: 'Weave'},
+                    { type: 'Tee', relChance: '40', colour: 'Tartan' },
+                    { type: 'Shirt', relChance: '60', colour: 'DiagonalStripes' },
+                    { type: 'Shirt', relChance: '100', colour: 'BlackLeather' }
+                ],
+                chance: '100',
+                type: 'top'
+            },
+            bottoms: {
+                outfitParts: [
+                    { type: 'Chinos', relChance: '10', colour: 'Red' },
+                    { type: 'Jeans', relChance: '30', colour: 'BlueDenim' },
+                    { type: 'Jeans', relChance: '50', colour: 'BlackLeather' },
+                    { type: 'Jeans', relChance: '90', colour: 'BlackDenim'},
+                    { type: 'Chinos', relChance: '100', colour: 'BlueDenim' }
+                ],
+                chance: '100',
+                type: 'bottom'
+            },
+            shoes: {
+                outfitParts: [
+                    { type: 'Trainers', relChance: '10', colour: 'Red'},
+                    { type: 'Trainers', relChance: '50', colour: 'BlackLeather' },
+                    { type: 'Boots', relChance: '100', colour: 'BlackLeather' }
+                ],
+                chance: '100',
+                type: 'shoes'
+            },
+            belts: {
+                outfitParts: [
+                    { type: 'LeatherBelt', relChance: '100', colour: 'BlackLeather' }
+                ],
+                chance: '40',
+                type: 'belt'
+            }
         }
     }
 
@@ -39,7 +81,7 @@ class OutfitBuilder extends Component {
     }
 
     addRemoveOutfitPart = (type, isAdding) => {
-        const currTypeCnt = this.state.outfitParts[type];
+        const currTypeCnt = this.state.outfitPartsData[type];
         if (!isAdding && currTypeCnt <= 0) {
             return;
         }
@@ -47,7 +89,7 @@ class OutfitBuilder extends Component {
             : currTypeCnt - 1;
         const newTotalPrice = isAdding ? this.state.totalPrice + OUTFIT_PRICES[type]
             : this.state.totalPrice - OUTFIT_PRICES[type];
-        const newTypes = { ...this.state.outfitParts };
+        const newTypes = { ...this.state.outfitPartsData };
 
         newTypes[type] = newTypeCnt;
         this.setState({
@@ -77,9 +119,54 @@ class OutfitBuilder extends Component {
         });
     }
 
-    continueAdding = () => {
+    continueAdding = (outfitPart) => {
         this.setState({ loading: true });
-        setTimeout(() => this.setState({loading: false}), 3000);
+
+        const newState = this.state.outfitPartsData;
+        const newOutfitPart = {
+            type: outfitPart.outfitPart,
+            relChance: '100',
+            colour: outfitPart.colour
+        };
+        switch(newOutfitPart.type) {
+            case 'hat':
+                const stateHats = this.state.outfitPartsData.hats;
+                stateHats.outfitParts.push(newOutfitPart);
+                newState.hats.outfitParts = stateHats;
+                break;
+            case 'top':
+                const stateTops = this.state.outfitPartsData.tops;
+                stateTops.outfitParts.push(newOutfitPart);
+                newState.tops.outfitParts = stateTops;
+                break;
+            case 'belt':
+                const stateBelts = this.state.outfitPartsData.belts;
+                stateBelts.outfitParts.push(newOutfitPart);
+                newState.belts.outfitParts = stateBelts;
+                break;
+            case 'bottom':
+                const stateBottoms = this.state.outfitPartsData.bottoms;
+                stateBottoms.outfitParts.push(newOutfitPart);
+                newState.bottoms.outfitParts = stateBottoms;
+                break;
+            case 'shoes':
+                const stateShoes = this.state.outfitPartsData.shoes;
+                stateShoes.outfitParts.push(newOutfitPart);
+                newState.shoes.outfitParts = stateShoes;
+                break;
+                default:
+                break;
+            }    
+        this.setState({ outfitPartsData: newState});
+
+
+        this.setState({
+            loading: false,
+            adding: false
+        });
+
+        alert('New outfit part added: ' + newOutfitPart.colour + ' ' +  newOutfitPart.type);
+
         //do an axios put here
 
 
@@ -108,7 +195,7 @@ class OutfitBuilder extends Component {
 
     render() {
         const disabledCntrl = {
-            ...this.state.outfitParts
+            ...this.state.outfitPartsData
         };
         for (let key in disabledCntrl) {
             disabledCntrl[key] = disabledCntrl[key] <= 0;
@@ -117,10 +204,10 @@ class OutfitBuilder extends Component {
         let outfit = this.state.error ? <p>Data can't be loaded</p> : <Spinner />
         let newOutfitPart = null;
 
-        if (this.state.outfitParts) {
+        if (this.state.outfitPartsData) {
             outfit = (
                 <Wrap>
-                    <Outfit outfitParts={this.state.outfitParts} />
+                    <Outfit outfitPartsData={this.state.outfitPartsData} />
                     {/* <BuildControls 
                         addType={this.addOutfitPartHandler}
                         removeType={this.removeOutfitPartHandler}
@@ -139,7 +226,7 @@ class OutfitBuilder extends Component {
                 //     totalPrice={this.state.totalPrice}/>;  
                 <AddOutfitPart
                         cancelClicked={this.cancelAdding}
-                        continueClicked={this.continueAdding}/>                  
+                        continueClicked={(newOutfitPart) => this.continueAdding(newOutfitPart)}/>                  
         }
 
         if (this.state.loading) {

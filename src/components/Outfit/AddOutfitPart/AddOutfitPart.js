@@ -5,14 +5,14 @@ import OutfitPartBuilder from '../OutfitPartBuilder/OutfitPartBuilder';
 import classes from './AddOutfitPart.css';
 
 const allAvailableItems = [
-    'Tophat',
-    'Tee',
-    'Shirt',
-    'LeatherBelt',
-    'Jeans',
-    'Chinos',
-    'Trainers',
-    'Boots'
+    {type: 'hat', outfitPart: 'Tophat'},
+    {type: 'top', outfitPart: 'Tee'},
+    {type: 'top', outfitPart: 'Shirt'},
+    {type: 'belt', outfitPart: 'LeatherBelt'},
+    {type: 'bottom', outfitPart: 'Jeans'},
+    {type: 'bottom', outfitPart: 'Chinos'},
+    {type: 'shoes', outfitPart: 'Trainers'},
+    {type: 'shoes', outfitPart: 'Boots'}
 ]
 const allAvailableColours = [
     'Default',
@@ -84,14 +84,14 @@ class AddOutfitPart extends Component {
         return (
             <Wrap>
                 <h3>Add new outfit part</h3>
-                <p><i>{selOutfitPart}</i></p>
+                <p><i>{selOutfitPart.outfitPart}</i></p>
                 <div className={classes.outfitPartPickerWrap}>
                     <button className={[classes.prev, classes.buttonLeft].join(' ')} onClick={this.prevSelItem}/>
                     <button className={[classes.prevColour, classes.buttonLeft].join(' ')} onClick={this.prevColour}/>
                     <div className={classes.outfitPartPicker}>
                     <OutfitPartBuilder 
                         colour={selColour} 
-                        type={selOutfitPart} 
+                        type={selOutfitPart.outfitPart} 
                         style={{zIndex: '100'}}
                         display='add'/>
                     </div>
@@ -99,7 +99,9 @@ class AddOutfitPart extends Component {
                     <button className={[classes.nextColour, classes.buttonRight].join(' ')} onClick={this.nextColour}/>
                 </div>
                 <Button clicked={this.props.cancelClicked} btnType='Danger'>Cancel</Button>
-                <Button clicked={this.props.continueClicked} btnType='Success'>Ok</Button>
+                <Button 
+                    clicked={() => this.props.continueClicked({type: selOutfitPart.type, outfitPart: selOutfitPart.outfitPart, colour: selColour})} 
+                    btnType='Success'>Ok</Button>
             </Wrap>
         )
     }

@@ -1,66 +1,15 @@
 import React, { Component } from 'react';
 import OutfitPartBuilder from './OutfitPartBuilder/OutfitPartBuilder';
 import classes from './Outfit.css';
-import Button from '../UI/Button/Button';
 import Wrap from '../../hoc/wrap/wrap';
 
 class Outfit extends Component {
 
-    state = {
-        outfitPartsData: {
-            hats: {
-                outfitParts: [
-                    { type: 'Tophat', relChance: '100', colour: 'BlackLeather' },
-                ],
-                chance: '25',
-                type: 'hat'
-            },
-            tops: {
-                outfitParts: [
-                    { type: 'Tee', relChance: '10', colour: 'Red' },
-                    { type: 'Tee', relChance: '15', colour: 'Weave'},
-                    { type: 'Tee', relChance: '40', colour: 'Tartan' },
-                    { type: 'Shirt', relChance: '60', colour: 'DiagonalStripes' },
-                    { type: 'Shirt', relChance: '100', colour: 'BlackLeather' }
-                ],
-                chance: '100',
-                type: 'top'
-            },
-            bottoms: {
-                outfitParts: [
-                    { type: 'Chinos', relChance: '10', colour: 'Red' },
-                    { type: 'Jeans', relChance: '30', colour: 'BlueDenim' },
-                    { type: 'Jeans', relChance: '50', colour: 'BlackLeather' },
-                    { type: 'Jeans', relChance: '90', colour: 'BlackDenim'},
-                    { type: 'Chinos', relChance: '100', colour: 'BlueDenim' }
-                ],
-                chance: '100',
-                type: 'bottom'
-            },
-            shoes: {
-                outfitParts: [
-                    { type: 'Trainers', relChance: '10', colour: 'Red'},
-                    { type: 'Trainers', relChance: '50', colour: 'BlackLeather' },
-                    { type: 'Boots', relChance: '100', colour: 'BlackLeather' }
-                ],
-                chance: '100',
-                type: 'shoes'
-            },
-            belts: {
-                outfitParts: [
-                    { type: 'LeatherBelt', relChance: '100', colour: 'BlackLeather' }
-                ],
-                chance: '40',
-                type: 'belt'
-            }
-        }
-    }
-
     onOutfitAccept = (outfitParts) => {
         alert('accepted parts: ');
         outfitParts.map(o => {
-            alert(o.type + ' ' + o.colour);
-        })
+            return alert(o.type + ' ' + o.colour);
+        });
     }
 
     onOutfitReject = () => {
@@ -84,10 +33,10 @@ class Outfit extends Component {
         //tops
         const parentChance = Math.random() * 100;
 
-        if (parentChance <= this.state.outfitPartsData.hats.chance) {
+        if (parentChance <= this.props.outfitPartsData.hats.chance) {
             const childChance = Math.random() * 100;
-            const topsArray = Object.keys(this.state.outfitPartsData.hats.outfitParts).map(igKey => {
-                return this.state.outfitPartsData.hats.outfitParts[igKey]
+            const topsArray = Object.keys(this.props.outfitPartsData.hats.outfitParts).map(igKey => {
+                return this.props.outfitPartsData.hats.outfitParts[igKey]
             });
             for (let cnt = 0; cnt < topsArray.length; cnt++) {
                 if (childChance <= topsArray[cnt].relChance) {
@@ -96,10 +45,10 @@ class Outfit extends Component {
                 }
             }
         }
-        if (parentChance <= this.state.outfitPartsData.tops.chance) {
+        if (parentChance <= this.props.outfitPartsData.tops.chance) {
             const childChance = Math.random() * 100;
-            const topsArray = Object.keys(this.state.outfitPartsData.tops.outfitParts).map(igKey => {
-                return this.state.outfitPartsData.tops.outfitParts[igKey]
+            const topsArray = Object.keys(this.props.outfitPartsData.tops.outfitParts).map(igKey => {
+                return this.props.outfitPartsData.tops.outfitParts[igKey]
             });
             for (let cnt = 0; cnt < topsArray.length; cnt++) {
                 if (childChance <= topsArray[cnt].relChance) {
@@ -108,10 +57,10 @@ class Outfit extends Component {
                 }
             }
         }
-        if (parentChance <= this.state.outfitPartsData.belts.chance) {
+        if (parentChance <= this.props.outfitPartsData.belts.chance) {
             const childChance = Math.random() * 100;
-            const topsArray = Object.keys(this.state.outfitPartsData.belts.outfitParts).map(igKey => {
-                return this.state.outfitPartsData.belts.outfitParts[igKey]
+            const topsArray = Object.keys(this.props.outfitPartsData.belts.outfitParts).map(igKey => {
+                return this.props.outfitPartsData.belts.outfitParts[igKey]
             });
             for (let cnt = 0; cnt < topsArray.length; cnt++) {
                 if (childChance <= topsArray[cnt].relChance) {
@@ -120,10 +69,10 @@ class Outfit extends Component {
                 }
             }
         }
-        if (parentChance <= this.state.outfitPartsData.bottoms.chance) {
+        if (parentChance <= this.props.outfitPartsData.bottoms.chance) {
             const childChance = Math.random() * 100;
-            const topsArray = Object.keys(this.state.outfitPartsData.bottoms.outfitParts).map(igKey => {
-                return this.state.outfitPartsData.bottoms.outfitParts[igKey]
+            const topsArray = Object.keys(this.props.outfitPartsData.bottoms.outfitParts).map(igKey => {
+                return this.props.outfitPartsData.bottoms.outfitParts[igKey]
             })
             for (let cnt = 0; cnt < topsArray.length; cnt++) {
                 if (childChance <= topsArray[cnt].relChance) {
@@ -132,10 +81,10 @@ class Outfit extends Component {
                 }
             }
         }
-        if (parentChance <= this.state.outfitPartsData.shoes.chance) {
+        if (parentChance <= this.props.outfitPartsData.shoes.chance) {
             const childChance = Math.random() * 100;
-            const topsArray = Object.keys(this.state.outfitPartsData.shoes.outfitParts).map(igKey => {
-                return this.state.outfitPartsData.shoes.outfitParts[igKey]
+            const topsArray = Object.keys(this.props.outfitPartsData.shoes.outfitParts).map(igKey => {
+                return this.props.outfitPartsData.shoes.outfitParts[igKey]
             })
             for (let cnt = 0; cnt < topsArray.length; cnt++) {
                 if (childChance <= topsArray[cnt].relChance) {
@@ -152,7 +101,7 @@ class Outfit extends Component {
                 </div>
                 <div class={classes.acceptRejectButtons}>
                 <button className={classes.outfitAcceptBtn} onClick={() => this.onOutfitAccept(outfitParts)}>ACCEPT</button>
-                <button className={classes.outfitRejectBtn} onClick={this.onOutfitReject}>reject</button>
+                <button className={classes.outfitRejectBtn} onClick={() => this.onOutfitReject}>reject</button>
                 </div>
             </Wrap>
         )
