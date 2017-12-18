@@ -99,9 +99,9 @@ class Outfit extends Component {
                 <div className={classes.Outfit}>
                     {outfitParts.map(part => <OutfitPartBuilder key={part.type} type={part.type} colour={part.colour} />)}
                 </div>
-                <div class={classes.acceptRejectButtons}>
+                <div className={classes.acceptRejectButtons}>
                 <button className={classes.outfitAcceptBtn} onClick={() => this.onOutfitAccept(outfitParts)}>ACCEPT</button>
-                <button className={classes.outfitRejectBtn} onClick={() => this.onOutfitReject}>reject</button>
+                <button className={classes.outfitRejectBtn} onClick={this.onOutfitReject}>reject</button>
                 </div>
             </Wrap>
         )
