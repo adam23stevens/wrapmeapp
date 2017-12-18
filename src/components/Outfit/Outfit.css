@@ -7,6 +7,36 @@
     font-size: 3.2rem;
 }
 
+.outfitAcceptBtn{
+        position:absolute;
+        top: 90%;
+        right:20%;
+        padding: 1rem 4rem;
+        margin: auto;
+        cursor: pointer;
+        background-color: rgb(44, 117, 29);
+        color: #EEE;
+        border-radius: 6px 6px 6px 6px;
+    }
+    
+.outfitAcceptBtn:hover{
+        background-color: #2fbe47;
+}
+.outfitRejectBtn {
+    position:absolute;
+    top: 90%;
+    right:10%;
+    padding: 1rem;
+    margin: auto;
+    cursor: pointer;
+    background-color: rgb(243, 62, 62);
+    color: #EEE;
+    border-radius: 6px 6px 6px 6px;
+}
+.outfutRejectBtn:hover{
+    background-color: #da3d3d
+}
+
 @media (min-width: 500px) and (min-height: 400px) {
     .Outfit{
         width: 350px;

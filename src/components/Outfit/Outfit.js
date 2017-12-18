@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import OutfitPartBuilder from './OutfitPartBuilder/OutfitPartBuilder';
 import classes from './Outfit.css';
+import Button from '../UI/Button/Button';
+import Wrap from '../../hoc/wrap/wrap';
 
 class Outfit extends Component {
 
@@ -52,6 +54,14 @@ class Outfit extends Component {
                 type: 'belt'
             }
         }
+    }
+
+    onOutfitAccept = () => {
+        alert('accepted');
+    }
+
+    onOutfitReject = () => {
+        alert('rejected');
     }
 
     render() {
@@ -133,10 +143,16 @@ class Outfit extends Component {
         }
 
         return (
-            <div className={classes.Outfit}>
-                <p style={{fontSize: '14px'}}> Parent Number: {parentChance.toFixed(2)}</p>
-                {outfitParts.map(part => <OutfitPartBuilder key={part.type} type={part.type} colour={part.colour} />)}
-            </div>
+            <Wrap>
+                <div className={classes.Outfit}>
+                    <p style={{fontSize: '14px'}}> Parent Number: {parentChance.toFixed(2)}</p>
+                    {outfitParts.map(part => <OutfitPartBuilder key={part.type} type={part.type} colour={part.colour} />)}
+                </div>
+                <div class={classes.acceptRejectButtons}>
+                <button className={classes.outfitAcceptBtn} onClick={this.onOutfitAccept}>ACCEPT</button>
+                <button className={classes.outfitRejectBtn} onClick={this.onOutfitReject}>reject</button>
+                </div>
+            </Wrap>
         )
     }
 }
