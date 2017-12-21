@@ -37,10 +37,11 @@
     background-color: #da3d3d
 }
 
-@media (min-width: 500px) and (min-height: 400px) {
+@media (max-width: 500px) {
     .Outfit{
-        width: 350px;
-        height: 300px;
+        width: 300px;
+        height: 450px;
+        margin-bottom:50px;
     }
 }
 
