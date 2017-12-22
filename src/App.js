@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import Layout from './hoc/Layout/Layout';
-import OutfitBuilder from './containers/OutfitBuilder/OutfitBuilder';
+import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Layout>
-            <OutfitBuilder/>
-        </Layout>
-      </div>
+        <BrowserRouter>
+          <div>
+          <Layout/>
+          </div>
+        </BrowserRouter>
     );
   }
 }
 
-export default App;
+export default App; 

@@ -4,8 +4,9 @@ import classes from './NavigationItems.css';
 
 const navigationItems = () =>  (
     <div className={classes.NavigationItems}>
-        <NavigationItem link='/' active>Outfit</NavigationItem>
-        <NavigationItem link='/'>Stats</NavigationItem>
+        <NavigationItem link='/'>Outfit</NavigationItem>
+        <NavigationItem link='/stats'>Stats</NavigationItem>
+        <NavigationItem link='/add'>New outfit part</NavigationItem>
     </div>
 )
 

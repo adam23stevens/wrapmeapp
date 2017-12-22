@@ -3,6 +3,10 @@ import Wrap from '../wrap/wrap'
 import classes from './Layout.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
+import OutfitBuilder from '../../containers/OutfitBuilder/OutfitBuilder';
+import AddOutfitPart from '../../containers/AddOutfitPart/AddOutfitPart';
+import Stats from '../../containers/Stats/Stats';
+import { Route } from 'react-router-dom';
 
 class Layout extends Component {
 
@@ -26,7 +30,10 @@ class Layout extends Component {
                 isOpen={this.state.showSideDrawer} 
                 close={this.hideSideDrawerHandler} />
             <main className={classes.Content}>
-                {this.props.children}
+                {/* {this.props.children} */}
+                <Route path="/" exact component={OutfitBuilder}/>
+                <Route path="/stats" exact component={Stats}/>
+                <Route path="/add" exact component={AddOutfitPart}/>
             </main>
         </Wrap>
         )

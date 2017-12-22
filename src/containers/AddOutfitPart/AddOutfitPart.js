@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Wrap from '../../../hoc/wrap/wrap';
-import Button from '../../UI/Button/Button';
-import OutfitPartBuilder from '../OutfitPartBuilder/OutfitPartBuilder';
+import Wrap from '../../hoc/wrap/wrap';
+import Button from '../../components/UI/Button/Button';
+import OutfitPartBuilder from '../../components/Outfit/OutfitPartBuilder/OutfitPartBuilder';
 import classes from './AddOutfitPart.css';
 
 const allAvailableItems = [
@@ -77,7 +77,19 @@ class AddOutfitPart extends Component {
         });
     }
 
-    render(){
+    continueAdding = (outfitPart) => {
+        const newOutfitPart = {
+            type: outfitPart.outfitPart,
+            relChance: '100',
+            colour: outfitPart.colour
+        };
+    
+        alert('New outfit part added: ' + newOutfitPart.colour + ' ' +  newOutfitPart.type);
+
+        //do an axios put here
+    }
+    
+    render() {
         const selOutfitPart = allAvailableItems[this.state.displayIndex];
         const selColour = allAvailableColours[this.state.colourIndex];
 
@@ -98,10 +110,9 @@ class AddOutfitPart extends Component {
                     <button className={[classes.next, classes.buttonRight].join(' ')} onClick={this.nextSelItem}/>
                     <button className={[classes.nextColour, classes.buttonRight].join(' ')} onClick={this.nextColour}/>
                 </div>
-                <Button clicked={this.props.cancelClicked} btnType='Danger'>Cancel</Button>
                 <Button 
-                    clicked={() => this.props.continueClicked({type: selOutfitPart.type, outfitPart: selOutfitPart.outfitPart, colour: selColour})} 
-                    btnType='Success'>Ok</Button>
+                    clicked={() => this.continueClicked({type: selOutfitPart.type, outfitPart: selOutfitPart.outfitPart, colour: selColour})} 
+                    btnType='Success'>Add</Button>
             </Wrap>
         )
     }
