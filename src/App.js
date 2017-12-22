@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div>
         <Layout>
-            <OutfitBuilder></OutfitBuilder>
+            <OutfitBuilder/>
         </Layout>
       </div>
     );
