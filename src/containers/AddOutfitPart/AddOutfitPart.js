@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Wrap from '../../hoc/wrap/wrap';
 import Button from '../../components/UI/Button/Button';
 import OutfitPartBuilder from '../../components/Outfit/OutfitPartBuilder/OutfitPartBuilder';
 import classes from './AddOutfitPart.css';
@@ -94,7 +93,7 @@ class AddOutfitPart extends Component {
         const selColour = allAvailableColours[this.state.colourIndex];
 
         return (
-            <Wrap>
+            <div className={classes.addOutfitPart}>
                 <h3>Add new outfit part</h3>
                 <p><i>{selOutfitPart.outfitPart}</i></p>
                 <div className={classes.outfitPartPickerWrap}>
@@ -111,9 +110,9 @@ class AddOutfitPart extends Component {
                     <button className={[classes.nextColour, classes.buttonRight].join(' ')} onClick={this.nextColour}/>
                 </div>
                 <Button 
-                    clicked={() => this.continueClicked({type: selOutfitPart.type, outfitPart: selOutfitPart.outfitPart, colour: selColour})} 
+                    clicked={() => this.continueAdding({type: selOutfitPart.type, outfitPart: selOutfitPart.outfitPart, colour: selColour})} 
                     btnType='Success'>Add</Button>
-            </Wrap>
+            </div>
         )
     }
 }
